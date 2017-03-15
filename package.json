@@ -1,0 +1,31 @@
+{
+  "name": "generator-rmc",
+  "version": "1.0.0",
+  "description": "generator rmc",
+  "files": [
+    "app"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cym-ui/generator-rmc.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "react",
+    "mobile",
+    "component"
+  ],
+  "author": "caiyongmin <645589265@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cym-ui/generator-rmc/issues"
+  },
+  "homepage": "https://github.com/cym-ui/generator-rmc#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "yeoman-generator": "^1.1.0"
+  }
+}

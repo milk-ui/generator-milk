@@ -1,0 +1,31 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "rmc component for mobile web app",
+  "repository": "https://github.com/cym-ui/<%= name %>",
+  "author": "<%= author %>",
+  "main": "build/bundle.js",
+  "scripts": {
+    "start": "rmc-dev run start",
+    "build": "rmc-dev run build"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "rmc",
+    "react",
+    "component",
+    "mobile"
+  ],
+  "dependencies": {
+    "classnames": "~2.2.3",
+    "fastclick": "^1.0.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "license": "MIT",
+  "devDependencies": {}
+}
