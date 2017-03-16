@@ -13,7 +13,7 @@ import Icon from './svg';
 import MobileIcon from './svg/mobile.svg';
 import './index.scss';
 
-class Name extends Component {
+class <%= ComponentName %> extends Component {
   render() {
     return (
       <div className="rmc-component">
@@ -24,4 +24,4 @@ class Name extends Component {
   }
 }
 
-export default Name;
+export default <%= ComponentName %>;

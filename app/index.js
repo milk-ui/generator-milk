@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 const path = require('path');
 const _ = require('lodash');
+const mkdirp = require('mkdirp');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -18,19 +19,12 @@ module.exports = class extends Generator {
       const date = new Date();
       return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     })();
-    this.hyphenatedComponentName = this.name.replace(/^rmc-/, '');
-    this.componentName = _.capitalize(_.camelCase(this.hyphenatedComponentName));
 
     const promptQuestions = [
       {
-        name: 'version',
-        message: 'project version',
-        default: '1.0.0',
-      },
-      {
-        name: 'description',
-        message: 'project description',
-        default: this.name + ' for component for rmc',
+        name: 'name',
+        message: 'component\'s name, better prefix with rmc-',
+        default: this.name,
       },
       {
         name: 'author',
@@ -38,57 +32,104 @@ module.exports = class extends Generator {
         store: true,
       },
       {
+        name: 'version',
+        message: 'component version info',
+        default: '1.0.0',
+      },
+      {
         type: 'confirm',
         name: 'skipInstall',
-        message: 'skip install node_modules',
+        message: 'skip install dependent node_modules',
       }
     ];
 
     return this.prompt(promptQuestions).then((answers) => {
-      this.answers = _.assign(answers, {
-        version: '1.0.0',
-        keywords: [
-          this.name,
-          this.componentName,
-        ],
-      })
 
-      this.answers = _.assign(this.answers, {
-          name: this.name,
-          hyphenatedComponentName: this.hyphenatedComponentName,
-          componentName: this.componentName,
-          date: this.date,
+      this.hyphenatedComponentName = answers.name.replace(/^rmc-/, '');
+      this.ComponentName = this.componentName = _.capitalize(_.camelCase(this.hyphenatedComponentName));
+
+      this.templateData = _.merge(answers, {
+        hyphenatedComponentName: this.hyphenatedComponentName,
+        componentName: this.componentName,
+        ComponentName: this.ComponentName,
+        date: this.date,
       });
       done();
     })
   }
 
-  writing() {
+  app() {
     this.config.save();
-    this.log(this.answers);
-    this.fs.copy(
-      this.templatePath('_editorconfig'), this.destinationPath('public/.editorconfig')
+    this.log(this.templateData);
+    this.fs.copyTpl(
+      this.templatePath('README.md'), this.destinationPath('public/README.md'), this.templateData
     );
     this.fs.copy(
-      this.templatePath('_eslintrc.json'), this.destinationPath('public/.eslintrc.json')
+      this.templatePath('LICENSE'), this.destinationPath('public/LICENSE')
+    );
+    this.fs.copyTpl(
+      this.templatePath('index.html'), this.destinationPath('public/index.html'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('HISTORY.md'), this.destinationPath('public/HISTORY.md'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('_package.json'), this.destinationPath('public/package.json'), this.templateData
     );
     this.fs.copy(
       this.templatePath('_gitignore'), this.destinationPath('public/.gitignore')
     );
-    this.fs.copyTpl(
-      this.templatePath('_package.json'), this.destinationPath('public/package.json'), this.answers
+    this.fs.copy(
+      this.templatePath('_eslintrc'), this.destinationPath('public/.eslintrc')
     );
-    this.fs.copyTpl(
-      this.templatePath('HISTORY.md'), this.destinationPath('public/HISTORY.md'), this.answers
+    this.fs.copy(
+      this.templatePath('_eslintignore'), this.destinationPath('public/.eslintignore')
     );
-    this.fs.copyTpl(
-      this.templatePath('README.md'), this.destinationPath('public/README.md'), this.answers
+    this.fs.copy(
+      this.templatePath('_editorconfig'), this.destinationPath('public/.editorconfig')
     );
   }
 
-  demoFiles() {
-    // console.info('run demoFiles method.');
-    // this.mkdir('demo/src/svg');
-    // this.copyTpl('index.html', 'index.html');
+  copyTestFiles() {
+    this.fs.copyTpl(
+      this.templatePath('tests/Name.spec.js'), this.destinationPath('public/tests/' + this.ComponentName + '.spec.js'), this.templateData
+    );
+    this.fs.copy(
+      this.templatePath('tests/index.js'), this.destinationPath('public/tests/index.js')
+    );
+  }
+
+  copyComponentFiles() {
+    this.fs.copyTpl(
+      this.templatePath('src/index.js'), this.destinationPath('public/src/index.js'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('src/index.scss'), this.destinationPath('public/src/index.scss'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('src/Name.js'), this.destinationPath('public/src/' + this.ComponentName + '.js'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('src/svg/index.js'), this.destinationPath('public/src/svg/index.js'), this.templateData
+    );
+    this.fs.copy(
+      this.templatePath('src/svg/mobile.svg'), this.destinationPath('public/src/svg/mobile.svg')
+    );
+  }
+
+  copyDemoFiles() {
+    this.fs.copyTpl(
+      this.templatePath('demo/index.js'), this.destinationPath('public/demo/index.js'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('demo/Demo.js'), this.destinationPath('public/demo/Demo.js'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('demo/Demo.scss'), this.destinationPath('public/demo/Demo.scss'), this.templateData
+    )
+  }
+
+  copyBuildFiles() {
+    mkdirp.sync('public/build')
   }
 };

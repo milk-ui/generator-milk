@@ -6,6 +6,6 @@
  * All rights reserved.
  */
 
-import Name from './Name';
+import <%= ComponentName %> from './<%= ComponentName %>';
 
-export default Name;
+export default <%= ComponentName %>;

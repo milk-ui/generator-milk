@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 
-import Name from './../src';
+import <%= ComponentName %> from './../src';
 import './Demo.scss';
 
 class Demo extends Component {
@@ -20,7 +20,7 @@ class Demo extends Component {
           Fake Page 😀.
         </div>
         <div className="demo-item">
-          <Name />
+          <<%= ComponentName %> />
         </div>
       </div>
     );
