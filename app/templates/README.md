@@ -9,8 +9,8 @@
 ### install
 
 ```bash
-cnpm i rmc-tools -g
-cnpm start
+cnpm i milk-dev -g
+npm start
 ```
 
 ## Simple Usage
@@ -21,4 +21,4 @@ cnpm start
 
 ## Links
 
-- [Issues](https://github.com/cym-ui/<%= name %>/issues)
+- [Issues](https://github.com/caiym-ui/<%= name %>/issues)

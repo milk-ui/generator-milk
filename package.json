@@ -1,7 +1,7 @@
 {
-  "name": "generator-rmc",
+  "name": "generator-milk",
   "version": "1.0.0",
-  "description": "generator rmc",
+  "description": "generator milk component",
   "files": [
     "app"
   ],
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cym-ui/generator-rmc.git"
+    "url": "git+https://github.com/caiym-ui/generator-milk.git"
   },
   "keywords": [
     "yeoman-generator",
@@ -21,9 +21,9 @@
   "author": "caiyongmin <645589265@qq.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cym-ui/generator-rmc/issues"
+    "url": "https://github.com/caiym-ui/generator-milk/issues"
   },
-  "homepage": "https://github.com/cym-ui/generator-rmc#readme",
+  "homepage": "https://github.com/caiym-ui/generator-milk#readme",
   "dependencies": {
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",

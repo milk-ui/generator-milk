@@ -1,2 +1,3 @@
-# rmc-generator
-for rmc
+# generator-milk
+
+for generator milk component.

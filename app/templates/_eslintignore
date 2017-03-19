@@ -4,3 +4,5 @@ webpack.prod.config.js
 karma.conf.js
 gulpfile.js
 server.js
+build/
+test/

@@ -19,11 +19,12 @@ module.exports = class extends Generator {
       const date = new Date();
       return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     })();
+    this.basePath = '';
 
     const promptQuestions = [
       {
         name: 'name',
-        message: 'component\'s name, better prefix with rmc-',
+        message: 'component\'s name, better prefix with milk-',
         default: this.name,
       },
       {
@@ -45,7 +46,7 @@ module.exports = class extends Generator {
 
     return this.prompt(promptQuestions).then((answers) => {
 
-      this.hyphenatedComponentName = answers.name.replace(/^rmc-/, '');
+      this.hyphenatedComponentName = answers.name.replace(/^milk-/, '');
       this.ComponentName = this.componentName = _.capitalize(_.camelCase(this.hyphenatedComponentName));
 
       this.templateData = _.merge(answers, {
@@ -60,76 +61,75 @@ module.exports = class extends Generator {
 
   app() {
     this.config.save();
-    this.log(this.templateData);
     this.fs.copyTpl(
-      this.templatePath('README.md'), this.destinationPath('public/README.md'), this.templateData
+      this.templatePath('README.md'), this.destinationPath(this.basePath + 'README.md'), this.templateData
     );
     this.fs.copy(
-      this.templatePath('LICENSE'), this.destinationPath('public/LICENSE')
-    );
-    this.fs.copyTpl(
-      this.templatePath('index.html'), this.destinationPath('public/index.html'), this.templateData
+      this.templatePath('LICENSE'), this.destinationPath(this.basePath + 'LICENSE')
     );
     this.fs.copyTpl(
-      this.templatePath('HISTORY.md'), this.destinationPath('public/HISTORY.md'), this.templateData
+      this.templatePath('index.html'), this.destinationPath(this.basePath + 'index.html'), this.templateData
     );
     this.fs.copyTpl(
-      this.templatePath('_package.json'), this.destinationPath('public/package.json'), this.templateData
+      this.templatePath('HISTORY.md'), this.destinationPath(this.basePath + 'HISTORY.md'), this.templateData
+    );
+    this.fs.copyTpl(
+      this.templatePath('_package.json'), this.destinationPath(this.basePath + 'package.json'), this.templateData
     );
     this.fs.copy(
-      this.templatePath('_gitignore'), this.destinationPath('public/.gitignore')
+      this.templatePath('_gitignore'), this.destinationPath(this.basePath + '.gitignore')
     );
     this.fs.copy(
-      this.templatePath('_eslintrc'), this.destinationPath('public/.eslintrc')
+      this.templatePath('_eslintrc'), this.destinationPath(this.basePath + '.eslintrc')
     );
     this.fs.copy(
-      this.templatePath('_eslintignore'), this.destinationPath('public/.eslintignore')
+      this.templatePath('_eslintignore'), this.destinationPath(this.basePath + '.eslintignore')
     );
     this.fs.copy(
-      this.templatePath('_editorconfig'), this.destinationPath('public/.editorconfig')
+      this.templatePath('_editorconfig'), this.destinationPath(this.basePath + '.editorconfig')
     );
   }
 
   copyTestFiles() {
     this.fs.copyTpl(
-      this.templatePath('tests/Name.spec.js'), this.destinationPath('public/tests/' + this.ComponentName + '.spec.js'), this.templateData
+      this.templatePath('tests/Name.spec.js'), this.destinationPath(this.basePath + 'tests/' + this.ComponentName + '.spec.js'), this.templateData
     );
     this.fs.copy(
-      this.templatePath('tests/index.js'), this.destinationPath('public/tests/index.js')
+      this.templatePath('tests/index.js'), this.destinationPath(this.basePath + 'tests/index.js')
     );
   }
 
   copyComponentFiles() {
     this.fs.copyTpl(
-      this.templatePath('src/index.js'), this.destinationPath('public/src/index.js'), this.templateData
+      this.templatePath('src/index.js'), this.destinationPath(this.basePath + 'src/index.js'), this.templateData
     );
     this.fs.copyTpl(
-      this.templatePath('src/index.scss'), this.destinationPath('public/src/index.scss'), this.templateData
+      this.templatePath('src/index.scss'), this.destinationPath(this.basePath + 'src/index.scss'), this.templateData
     );
     this.fs.copyTpl(
-      this.templatePath('src/Name.js'), this.destinationPath('public/src/' + this.ComponentName + '.js'), this.templateData
+      this.templatePath('src/Name.jsx'), this.destinationPath(this.basePath + 'src/' + this.ComponentName + '.jsx'), this.templateData
     );
     this.fs.copyTpl(
-      this.templatePath('src/svg/index.js'), this.destinationPath('public/src/svg/index.js'), this.templateData
+      this.templatePath('src/svg/index.js'), this.destinationPath(this.basePath + 'src/svg/index.js'), this.templateData
     );
     this.fs.copy(
-      this.templatePath('src/svg/mobile.svg'), this.destinationPath('public/src/svg/mobile.svg')
+      this.templatePath('src/svg/mobile.svg'), this.destinationPath(this.basePath + 'src/svg/mobile.svg')
     );
   }
 
   copyDemoFiles() {
     this.fs.copyTpl(
-      this.templatePath('demo/index.js'), this.destinationPath('public/demo/index.js'), this.templateData
+      this.templatePath('demo/index.js'), this.destinationPath(this.basePath + 'demo/index.js'), this.templateData
     );
     this.fs.copyTpl(
-      this.templatePath('demo/Demo.js'), this.destinationPath('public/demo/Demo.js'), this.templateData
+      this.templatePath('demo/Demo.jsx'), this.destinationPath(this.basePath + 'demo/Demo.jsx'), this.templateData
     );
     this.fs.copyTpl(
-      this.templatePath('demo/Demo.scss'), this.destinationPath('public/demo/Demo.scss'), this.templateData
+      this.templatePath('demo/Demo.scss'), this.destinationPath(this.basePath + 'demo/Demo.scss'), this.templateData
     )
   }
 
   copyBuildFiles() {
-    mkdirp.sync('public/build')
+    mkdirp.sync(this.basePath + 'build')
   }
 };

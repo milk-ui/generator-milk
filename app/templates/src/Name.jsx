@@ -1,8 +1,8 @@
 /**
- * <%= ComponentName %> of rmc-component
+ * <%= ComponentName %> of milk-component
  * @author <%- author %>
  *
- * Copyright 2017-2019, RMC Team.
+ * Copyright 2017-2019, Milk Team.
  * All rights reserved.
  */
 
@@ -16,9 +16,9 @@ import './index.scss';
 class <%= ComponentName %> extends Component {
   render() {
     return (
-      <div className="rmc-component">
-        <Icon className="rmc-component-icon" glyph={MobileIcon} />
-        <span className="rmc-component-text">Are you ready!</span>
+      <div className="milk-component">
+        <Icon className="milk-component-icon" glyph={MobileIcon} />
+        <span className="milk-component-text">Are you ready!</span>
       </div>
     );
   }

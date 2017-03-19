@@ -1,8 +1,8 @@
 /**
- * <%= ComponentName %> of rmc-component
+ * <%= ComponentName %> of milk-component
  * @author <%- author %>
  *
- * Copyright 2017-2019, RMC Team.
+ * Copyright 2017-2019, Milk Team.
  * All rights reserved.
  */
 

@@ -1,3 +1,3 @@
 <%- version %> / <%- date %>
 ==================
-* `feat`: init component
+* `feat`: init component.
