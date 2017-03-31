@@ -2,23 +2,34 @@
 
 组件描述
 
-组件截图
+## 效果图
 
-## How to develop
+...some images
+
+## 使用
+
+```js
+import <%= ComponentName %> from 'milk-<%= name %>';
+
+<<%= ComponentName %>></<%= ComponentName %>>
+```
+
+## 参数
+
+| Properties | Type | Description | Default |
+| -- | -- | -- | -- |
+| className | String | 自定义的 class 类名 | '' |
+
+## 开发
 
 ### install
 
 ```bash
-cnpm i milk-dev -g
+cnpm i milk-dev -g    # 组件开发工具
+cnpm install
 npm start
 ```
 
-## Simple Usage
-
-## Props
-
-## APIs
-
-## Links
+## 链接
 
 - [Issues](https://github.com/caiym-ui/<%= name %>/issues)

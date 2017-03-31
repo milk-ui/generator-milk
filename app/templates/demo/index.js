@@ -2,8 +2,7 @@
  * <%= ComponentName %> of milk-component
  * @author <%- author %>
  *
- * Copyright 2017-2019, Milk Team.
- * All rights reserved.
+ * Copyright 2017-2019, All rights reserved.
  */
 
 import React from 'react';
