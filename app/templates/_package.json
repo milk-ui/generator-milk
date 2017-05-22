@@ -11,7 +11,7 @@
     "pub": "milk-dev run publish"
   },
   "files": [
-    "dist",
+    "build",
     "src",
     "README.md"
   ],

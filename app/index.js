@@ -19,7 +19,7 @@ module.exports = class extends Generator {
       const date = new Date();
       return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     })();
-    this.basePath = 'publish/';
+    this.basePath = '';
 
     const promptQuestions = [
       {
