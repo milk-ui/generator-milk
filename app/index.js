@@ -24,7 +24,7 @@ module.exports = class extends Generator {
     const promptQuestions = [
       {
         name: 'name',
-        message: 'component\'s name, better prefix with milk-',
+        message: 'component\'s name, better prefix with milkui-',
         default: this.name,
       },
       {
@@ -46,7 +46,7 @@ module.exports = class extends Generator {
 
     return this.prompt(promptQuestions).then((answers) => {
 
-      this.hyphenatedComponentName = answers.name.replace(/^milk-/, '');
+      this.hyphenatedComponentName = answers.name.replace(/^milkui-/, '');
       this.ComponentName = this.componentName = _.capitalize(_.camelCase(this.hyphenatedComponentName));
 
       this.templateData = _.merge(answers, {

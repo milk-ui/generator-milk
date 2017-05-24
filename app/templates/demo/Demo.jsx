@@ -1,5 +1,5 @@
 /**
- * <%= ComponentName %> of milk-component
+ * <%= ComponentName %> of milkui-component
  * @author <%- author %>
  *
  * Copyright 2017-2019, All rights reserved.
@@ -14,9 +14,9 @@ class Demo extends Component {
   render() {
     return (
       <div className="demo-panel">
-        <div className="demo-title">Title</div>
+        <div className="demo-title">Milk UI</div>
         <div className="demo-description">
-          Fake Page 😀.
+          Demo Page 😀.
         </div>
         <div className="demo-item">
           <<%= ComponentName %> />

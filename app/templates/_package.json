@@ -1,8 +1,8 @@
 {
   "name": "<%= name %>",
   "version": "<%= version %>",
-  "description": "milk component for build mobile web app",
-  "repository": "https://github.com/caiym-ui/<%= name %>",
+  "description": "milk ui component for build mobile web app",
+  "repository": "https://github.com/milk-ui/<%= name %>",
   "author": "<%= author %>",
   "main": "build/bundle.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "milk",
     "react",
     "mobile",
+    "ui",
     "component"
   ],
   "dependencies": {

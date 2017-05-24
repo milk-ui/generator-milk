@@ -1,5 +1,6 @@
 # Editor
 .vscode
+build/
 
 # Logs
 logs

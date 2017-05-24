@@ -9,7 +9,7 @@
 ## 使用
 
 ```js
-import <%= ComponentName %> from 'milk-<%= name %>';
+import <%= ComponentName %> from '<%= name %>';
 
 <<%= ComponentName %>></<%= ComponentName %>>
 ```
@@ -32,4 +32,4 @@ npm start
 
 ## 链接
 
-- [Issues](https://github.com/caiym-ui/<%= name %>/issues)
+- [Issues](https://github.com/milk-ui/<%= name %>/issues)

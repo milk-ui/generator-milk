@@ -1,11 +1,11 @@
 /**
- * <%= ComponentName %> of milk-component
+ * <%= ComponentName %> of milkui-component
  * @author <%- author %>
  *
  * Copyright 2017-2019, All rights reserved.
  */
 
-.milk-component {
+.<%= name %> {
   padding: 15px 10px;
   border: 1px solid #00d8ff;
   border-radius: 5px;
@@ -20,13 +20,13 @@
   }
 }
 
-.milk-component-icon {
+.<%= name %>__icon {
   width: 28px;
   height: 28px;
   fill: #fff;
   vertical-align: middle;
 }
 
-.milk-component-text {
+.<%= name %>__text {
   vertical-align: middle;
 }

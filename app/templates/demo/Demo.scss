@@ -1,5 +1,5 @@
 /**
- * <%= ComponentName %> of milk-component
+ * <%= ComponentName %> of milkui-component
  * @author <%- author %>
  *
  * Copyright 2017-2019, All rights reserved.
