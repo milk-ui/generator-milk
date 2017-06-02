@@ -18,7 +18,7 @@ class Icon extends React.Component {
     const glyph = this.props.glyph;
     return (
       <svg
-        className={classnames('icon', this.props.className)}
+        className={classnames('milkui-icon', this.props.className)}
         dangerouslySetInnerHTML={{ __html: `<use xlink:href="${glyph}"></use>` }}
       />
     );

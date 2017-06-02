@@ -14,9 +14,9 @@ class Demo extends Component {
   render() {
     return (
       <div className="demo-panel">
-        <div className="demo-title">Milk UI</div>
+        <div className="demo-title"><%= ComponentName %></div>
         <div className="demo-description">
-          Demo Page 😀.
+          This is a demo page, enjoy it! 😀 ✌️
         </div>
         <div className="demo-item">
           <<%= ComponentName %> />

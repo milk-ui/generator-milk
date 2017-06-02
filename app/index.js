@@ -59,74 +59,52 @@ module.exports = class extends Generator {
     })
   }
 
+  copyTpl(template, destination, data) {
+    if (!template || !destination || !data) {
+      return;
+    }
+    destination = this.basePath + destination;
+    this.fs.copyTpl(this.templatePath(template), this.destinationPath(destination), data);
+  }
+
+  copy(template, destination) {
+    if (!template || !destination) {
+      return;
+    }
+    destination = this.basePath + destination;
+    this.fs.copy(this.templatePath(template), this.destinationPath(destination));
+  }
+
   app() {
     this.config.save();
-    this.fs.copyTpl(
-      this.templatePath('README.md'), this.destinationPath(this.basePath + 'README.md'), this.templateData
-    );
-    this.fs.copy(
-      this.templatePath('LICENSE'), this.destinationPath(this.basePath + 'LICENSE')
-    );
-    this.fs.copyTpl(
-      this.templatePath('index.html'), this.destinationPath(this.basePath + 'index.html'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('HISTORY.md'), this.destinationPath(this.basePath + 'HISTORY.md'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('_package.json'), this.destinationPath(this.basePath + 'package.json'), this.templateData
-    );
-    this.fs.copy(
-      this.templatePath('_gitignore'), this.destinationPath(this.basePath + '.gitignore')
-    );
-    this.fs.copy(
-      this.templatePath('_eslintrc'), this.destinationPath(this.basePath + '.eslintrc')
-    );
-    this.fs.copy(
-      this.templatePath('_eslintignore'), this.destinationPath(this.basePath + '.eslintignore')
-    );
-    this.fs.copy(
-      this.templatePath('_editorconfig'), this.destinationPath(this.basePath + '.editorconfig')
-    );
+    this.copyTpl('README.md', 'README.md', this.templateData);
+    this.copyTpl('HISTORY.md', 'HISTORY.md', this.templateData);
+    this.copyTpl('LICENSE', 'LICENSE', this.templateData);
+    this.copyTpl('index.html', 'index.html', this.templateData);
+    this.copyTpl('_package.json', 'package.json', this.templateData);
+    this.copy('_gitignore', '.gitignore');
+    this.copy('_eslintrc', '.eslintrc');
+    this.copy('_eslintignore', '.eslintignore');
+    this.copy('_editorconfig', '.editorconfig');
   }
 
   copyTestFiles() {
-    this.fs.copyTpl(
-      this.templatePath('tests/Name.spec.js'), this.destinationPath(this.basePath + 'tests/' + this.ComponentName + '.spec.js'), this.templateData
-    );
-    this.fs.copy(
-      this.templatePath('tests/index.js'), this.destinationPath(this.basePath + 'tests/index.js')
-    );
+    this.copyTpl('tests/Name.spec.js', 'tests/' + this.ComponentName + '.spec.js', this.templateData);
+    this.copy('tests/index.js', 'tests/index.js');
   }
 
   copyComponentFiles() {
-    this.fs.copyTpl(
-      this.templatePath('src/index.js'), this.destinationPath(this.basePath + 'src/index.js'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('src/index.scss'), this.destinationPath(this.basePath + 'src/index.scss'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('src/Name.jsx'), this.destinationPath(this.basePath + 'src/' + this.ComponentName + '.jsx'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('src/svg/index.js'), this.destinationPath(this.basePath + 'src/svg/index.js'), this.templateData
-    );
-    this.fs.copy(
-      this.templatePath('src/svg/mobile.svg'), this.destinationPath(this.basePath + 'src/svg/mobile.svg')
-    );
+    this.copyTpl('src/index.js', 'src/index.js', this.templateData);
+    this.copyTpl('src/index.scss', 'src/index.scss', this.templateData);
+    this.copyTpl('src/Name.jsx', 'src/' + this.ComponentName + '.jsx', this.templateData);
+    this.copyTpl('src/svg/index.js', 'src/svg/index.js', this.templateData);
+    this.copy('src/svg/mobile.svg', 'src/svg/mobile.svg', this.templateData);
   }
 
   copyDemoFiles() {
-    this.fs.copyTpl(
-      this.templatePath('demo/index.js'), this.destinationPath(this.basePath + 'demo/index.js'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('demo/Demo.jsx'), this.destinationPath(this.basePath + 'demo/Demo.jsx'), this.templateData
-    );
-    this.fs.copyTpl(
-      this.templatePath('demo/Demo.scss'), this.destinationPath(this.basePath + 'demo/Demo.scss'), this.templateData
-    )
+    this.copyTpl('demo/index.js', 'demo/index.js', this.templateData);
+    this.copyTpl('demo/Demo.jsx', 'demo/Demo.jsx', this.templateData);
+    this.copyTpl('demo/Demo.scss', 'demo/Demo.scss', this.templateData);
   }
 
   copyBuildFiles() {
