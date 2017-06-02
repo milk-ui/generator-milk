@@ -12,9 +12,10 @@
 - [Ant Design Mobile](https://mobile.ant.design/)
 - [Ant Design](https://ant.design/index-cn)
 - [Mint UI](http://mint-ui.github.io/#!/zh-cn)
+- [WeUI](https://weui.github.io/react-weui/docs/)
 
 在此表示感谢！
 
-感兴趣的同学，欢迎提 [issue](https://github.com/caiym-ui/generator-milk/issues) 来一起讨论。
+感兴趣的同学，欢迎提 [issue](https://github.com/milk-ui/generator-milk/issues) 来一起讨论，或者直接提 [PR](https://github.com/milk-ui/generator-milk/pulls) 给我。
 
 如果觉得不错，欢迎 Star！
