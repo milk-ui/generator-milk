@@ -13,12 +13,12 @@ import './Demo.scss';
 class Demo extends Component {
   render() {
     return (
-      <div className="demo-panel">
-        <div className="demo-title"><%= ComponentName %></div>
-        <div className="demo-description">
+      <div className="demo__panel">
+        <div className="demo__title"><%= ComponentName %></div>
+        <div className="demo__description">
           This is a demo page, enjoy it! 😀 ✌️
         </div>
-        <div className="demo-item">
+        <div className="demo__item">
           <<%= ComponentName %> />
         </div>
       </div>

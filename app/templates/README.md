@@ -1,12 +1,12 @@
 # <%= name %>
 
-组件描述
+> 组件描述
 
-## 效果图
+## Overview
 
 ...some images
 
-## 使用
+## Example
 
 ```js
 import <%= ComponentName %> from '<%= name %>';
@@ -14,22 +14,22 @@ import <%= ComponentName %> from '<%= name %>';
 <<%= ComponentName %>></<%= ComponentName %>>
 ```
 
-## 参数
+## Properties
 
-| Properties | Type | Description | Default |
+| Property | Type | Description | Default |
 | -- | -- | -- | -- |
 | className | String | 自定义的 class 类名 | '' |
 
-## 开发
-
-### install
+## Develop
 
 ```bash
-cnpm i milk-dev -g    # 组件开发工具
+cnpm i milk-dev -g    # dev tool
+
 cnpm install
+
 npm start
 ```
 
-## 链接
+## Links
 
 - [Issues](https://github.com/milk-ui/<%= name %>/issues)

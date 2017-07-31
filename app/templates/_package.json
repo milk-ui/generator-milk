@@ -29,5 +29,7 @@
     "react-dom": "~15.4.2"
   },
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "milkui-style-base": "0.1.0"
+  }
 }

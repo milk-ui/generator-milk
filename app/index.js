@@ -1,4 +1,5 @@
 'use strict';
+
 const Generator = require('yeoman-generator');
 const path = require('path');
 const _ = require('lodash');
@@ -36,25 +37,24 @@ module.exports = class extends Generator {
         name: 'version',
         message: 'component version info',
         default: '1.0.0',
-      },
-      {
-        type: 'confirm',
-        name: 'skipInstall',
-        message: 'skip install dependent node_modules',
       }
     ];
 
     return this.prompt(promptQuestions).then((answers) => {
-
+      
       this.hyphenatedComponentName = answers.name.replace(/^milkui-/, '');
-      this.ComponentName = this.componentName = _.capitalize(_.camelCase(this.hyphenatedComponentName));
 
+      this.componentName = this.hyphenatedComponentName
+                                .split('-').map((s) => s[0].toUpperCase() + s.substring(1)).join('');
+
+      this.ComponentName = this.componentName;
       this.templateData = _.merge(answers, {
         hyphenatedComponentName: this.hyphenatedComponentName,
         componentName: this.componentName,
         ComponentName: this.ComponentName,
         date: this.date,
       });
+
       done();
     })
   }
@@ -64,7 +64,10 @@ module.exports = class extends Generator {
       return;
     }
     destination = this.basePath + destination;
-    this.fs.copyTpl(this.templatePath(template), this.destinationPath(destination), data);
+    this.fs.copyTpl(
+      this.templatePath(template),
+      this.destinationPath(destination),
+      data);
   }
 
   copy(template, destination) {
@@ -72,38 +75,56 @@ module.exports = class extends Generator {
       return;
     }
     destination = this.basePath + destination;
-    this.fs.copy(this.templatePath(template), this.destinationPath(destination));
+    this.fs.copy(
+      this.templatePath(template),
+      this.destinationPath(destination));
   }
 
   app() {
     this.config.save();
+
     this.copyTpl('README.md', 'README.md', this.templateData);
+
     this.copyTpl('HISTORY.md', 'HISTORY.md', this.templateData);
+
     this.copyTpl('LICENSE', 'LICENSE', this.templateData);
+
     this.copyTpl('index.html', 'index.html', this.templateData);
+
     this.copyTpl('_package.json', 'package.json', this.templateData);
+
     this.copy('_gitignore', '.gitignore');
+
     this.copy('_eslintrc', '.eslintrc');
+
     this.copy('_eslintignore', '.eslintignore');
+
     this.copy('_editorconfig', '.editorconfig');
   }
 
   copyTestFiles() {
     this.copyTpl('tests/Name.spec.js', 'tests/' + this.ComponentName + '.spec.js', this.templateData);
+
     this.copy('tests/index.js', 'tests/index.js');
   }
 
   copyComponentFiles() {
     this.copyTpl('src/index.js', 'src/index.js', this.templateData);
+
     this.copyTpl('src/index.scss', 'src/index.scss', this.templateData);
+
     this.copyTpl('src/Name.jsx', 'src/' + this.ComponentName + '.jsx', this.templateData);
+
     this.copyTpl('src/svg/index.js', 'src/svg/index.js', this.templateData);
+
     this.copy('src/svg/mobile.svg', 'src/svg/mobile.svg', this.templateData);
   }
 
   copyDemoFiles() {
     this.copyTpl('demo/index.js', 'demo/index.js', this.templateData);
+
     this.copyTpl('demo/Demo.jsx', 'demo/Demo.jsx', this.templateData);
+    
     this.copyTpl('demo/Demo.scss', 'demo/Demo.scss', this.templateData);
   }
 
