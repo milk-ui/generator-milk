@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "generator milk component",
   "files": [
-    "app"
+    "app",
+    "LICENSE",
+    "package.json",
+    "README.md"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
