@@ -27,7 +27,14 @@ cnpm i milk-dev -g    # dev tool
 
 cnpm install
 
+# develop
 npm start
+
+# test
+npm run test
+
+# publish
+npm run pub
 ```
 
 ## Links
