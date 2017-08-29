@@ -29,9 +29,9 @@ cnpm install
 npm start
 ```
 
-The goal of this project is not to recreate a mobile component library.But by building component development tools and the development of some components to understand the components of the development process in all aspects.
+The goal of this project is not to recreate a mobile component library. But by building component development tools and the development of some components to understand the components of the development process in all aspects.
 
-Now the functions have been achieved (see [here](https://github.com/milk-ui/milk-dev)):
+Now the functions have been achieved (would [here](https://github.com/milk-ui/milk-dev)):
 
 1. initialize the component template.
 2. support development environment debugging.
