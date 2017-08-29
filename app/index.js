@@ -117,7 +117,7 @@ module.exports = class extends Generator {
 
     this.copyTpl('src/svg/index.js', 'src/svg/index.js', this.templateData);
 
-    this.copy('src/svg/mobile.svg', 'src/svg/mobile.svg', this.templateData);
+    this.copy('src/svg/mobile.svg', 'src/svg/mobile.svg');
   }
 
   copyDemoFiles() {
