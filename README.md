@@ -29,6 +29,8 @@ cnpm install
 npm start
 ```
 
+## Cheers
+
 The goal of this project is not to recreate a mobile component library. But by building component development tools and the development of some components to understand the components of the development process in all aspects.
 
 Now the functions have been achieved (would see [here](https://github.com/milk-ui/milk-dev)):
