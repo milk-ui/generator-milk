@@ -31,17 +31,18 @@ npm start
 
 ## Cheers
 
-The goal of this project is not to recreate a mobile component library. But by building component development tools and the development of some components to understand the components of the development process in all aspects.
+本项目目标并不是再造一个移动端组件库，而是通过打造组件开发工具和开发部分组件来深入了解组件开发过程中的方方面面。
 
-Now the functions have been achieved (would see [here](https://github.com/milk-ui/milk-dev)):
+现在这个组件库构建实现了以下一些功能 (看[这里](https://github.com/milk-ui/milk-dev)):
 
-1. initialize the component template.
-2. support development environment debugging.
-3. support testflow.
-4. support packflow and component publish.
+1. 使用 yeoman 初始化组件模板。
+2. 开发调试自动刷新。
+3. 支持单元测试（看[这里](https://github.com/milk-ui/milkui-button/blob/master/tests/Button.spec.js)）。
+4. 打包发布自动化。
+5. 支持有一个 style base 包来管理组件基础的样式定义（看[这里](https://github.com/milk-ui/milkui-button/blob/master/src/index.scss)和[这里](https://github.com/milk-ui/milkui-style-base)）。
 
 
-In the development process draws on a lot of good components library, for example:
+在开发的过程中，借鉴了现在一些优秀的组件库，比如：
 
 - [UXCore](http://uxcore.coding.me/)
 - [Ant Design Mobile](https://mobile.ant.design/)
@@ -49,6 +50,6 @@ In the development process draws on a lot of good components library, for exampl
 - [Mint UI](http://mint-ui.github.io/#!/zh-cn)
 - [WeUI](https://weui.github.io/react-weui/docs/)
 
-I would like to thank you very much!
+在此表示感谢！
 
-And welcome [Issue](https://github.com/milk-ui/generator-milk/issues) & [PR](https://github.com/milk-ui/generator-milk/pulls).
+感兴趣的同学，欢迎提 [Issue](https://github.com/milk-ui/generator-milk/issues) & [PR](https://github.com/milk-ui/generator-milk/pulls).
