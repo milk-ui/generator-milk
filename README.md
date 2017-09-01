@@ -15,6 +15,7 @@ cnpm install generator-milk -g
 ```bash
 # global install
 cnpm install generator-milk -g
+cnpm install milk-dev -g
 
 # mkdir && cd that dir
 mkdir milkui-temp && cd milkui-temp
